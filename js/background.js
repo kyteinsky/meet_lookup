@@ -17,7 +17,7 @@ let okayButton = document;
 // };
 
 let schedules = {};
-schedules = {};
+// schedules = {}; // I don't remember what I was to going to change it to
 authuser = "";
 words = [];
 meets = {}; //init
@@ -26,12 +26,13 @@ const openMeetTab = (meetDetails) => {
   chrome.tabs.create(
     {
       url: `https://meet.google.com/${meetDetails[0]}?authuser=${authuser}&drn=${meetDetails[2]}`,
-      active: false
+      active: true,
+      selected: true // mic btn doesn't show up unless tab is focused
     },
     (tab) => {
       console.log(`opened the meet tab=${JSON.stringify(tab)}`);
       chrome.tabs.executeScript(tab.id, { file: "js/script.js" }, (res) => {
-        console.log(`script injected: ${res}`);
+        console.log(`script injected: ${JSON.stringify(res)}`);
         // mute the tab
         chrome.tabs.update(tab.id, { muted: true });
       });
@@ -87,12 +88,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
     });
   } else if (message.body.includes("authuser")) {
-		const failedMeetId = message.body.split(" ")[2] 
+    const failedMeetId = message.body.split(" ")[2]
+    console.log(`failedMeetId=${failedMeetId}`);
     for (let i in schedules) {
       clearTimeout(schedules[i]);
 		}
 		chrome.storage.sync.get("authuser", (res) => {
       authuser = res.authuser;
+      console.log(`authuser===${authuser}`);
     });
 		schedules = {};
 		let fId = 0 // almost all the times this will remain zero, yet just for failsafe
@@ -107,11 +110,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       });
     }
     openMeetTab([failedMeetId, meets[fId][1], meets[fId][2]]);
+    console.log(`openMeetTab==${[failedMeetId, meets[fId][1], meets[fId][2]]}`);
     console.log(
       "opened meet tab with correct authuser for " + failedMeetId
     );
   } else if (message.body.includes("alert")) {
-    chrome.tabs.update(sender.tab.id, { muted: false, selected: true });
+    chrome.tabs.update(sender.tab.id, {
+      muted: false,
+      selected: true,
+      active:true
+    });
     for (let i in meets) {
       if (meets[i][0] === message.body.split(" ")[2]) {
         clearTimeout(schedules[i]);
