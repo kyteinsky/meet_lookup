@@ -1,0 +1,128 @@
+#main {
+  height: 550px;
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#err_msg {
+  color: crimson;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+#indicator {
+  height: 22px;
+  width: 22px;
+  background-color: crimson;
+  border-radius: 50px;
+  position: absolute;
+  right: 50px;
+  top: 110px;
+}
+
+#clear_all {
+  color: white;
+  background-color: crimson;
+  font-weight: bold;
+  border: none;
+  position: relative;
+  right: -130px;
+  top: -32px;
+}
+
+.set {
+  margin-top: 30px;
+}
+
+input {
+  font-size: 14px;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: blue;
+}
+
+#timing {
+  height: 100px;
+  padding: 20px;
+  width: 100%;
+}
+/* 
+.set {
+	height: 100px;
+	overflow-y: auto;
+} */
+
+#inp_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.meet_box {
+  width: 170px;
+}
+.time {
+  width: 120px;
+}
+
+.plos {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#all_meets {
+  text-align: center;
+  /* margin-top: 15px; */
+  overflow-y: auto;
+  height: 300px;
+  border: 1px solid #dadada;
+  border-radius: 10px;
+}
+
+.word_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+}
+
+ul {
+  list-style-type: none;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 12px;
+  font-size: 16px;
+  padding-right: 40px;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+input[name="words"] {
+  width: 300px;
+}
+input[name="authuser"] {
+  width: 100px;
+}
+
+.delete {
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+  border: none;
+  /* font-size: 16px; */
+  border-radius: 30px;
+  height: 22px;
+  width: 22px;
+  outline: none;
+}

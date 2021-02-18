@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Details</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+  </head>
+  <body style="margin: 0">
+    <div id="main">
+      <div>
+        <div class="title">
+          <h2>gmeet lookup</h2>
+        </div>
+        <div id="timings">
+          <div id="err_msg"></div>
+          <div id="inp_div">
+            <input id="id" placeholder="Meet ID" class="meet_box" autofocus />
+            <input id="start" placeholder="Start Time (24 hr)" class="time" />
+            <input id="interval" placeholder="Interval (mins)" class="time" />
+          </div>
+          <div id="indicator"></div>
+          <div class="plos">
+            <input type="button" value="+" id="plos" />
+          </div>
+        </div>
+        <div class="set" style="text-align: center">
+          <h3 style="color: chocolate">set meets</h3>
+          <input type="button" id="clear_all" value="CLEAR ALL" />
+
+          <div id="all_meets">
+            <!-- <ul id="set_list1">
+              <li>
+                <span>sdm-wefn-enw</span>
+                <span>1400</span>
+                <span>60 mins</span>
+                <input type="button" value="X" class="delete" />
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+      <div>
+        If the start time has already passed, meet would be scheduled for the
+        next day.
+      </div>
+      <div class="word_box">
+        <input id="authuser" placeholder="authuser" />
+        <input id="words" placeholder="lookup word(s) (csv)" />
+        <input type="button" value="Okay" id="okay" />
+      </div>
+    </div>
+    <script lang="text/javascript" src="../js/popup_script.js"></script>
+  </body>
+</html>
