@@ -1,10 +1,10 @@
 console.log(`here in scirpt.js`);
 
-
 setTimeout(() => {
+  console.log(`if part`);
+
 	let words = [];
 
-  console.log(`if part`);
 
   const micBtn = document.querySelector(
     "#yDmH0d > c-wiz > div > div > div:nth-child(8) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(4) > div > div > div > div"
