@@ -115,6 +115,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       "opened meet tab with correct authuser for " + failedMeetId
     );
   } else if (message.body.includes("alert")) {
+    const meetId = message.body.split(" ")[2]
+    chrome.notifications.create(meetId, {
+      type: 'basic',
+      title: `Meet Alert: ${meetId}`,
+      message: `Looks like some word matched from your list in the meet conversations`
+    })
     chrome.tabs.update(sender.tab.id, {
       muted: false,
       selected: true,

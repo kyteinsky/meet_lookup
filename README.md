@@ -50,7 +50,7 @@ authuser is the index number of the google account from among the signed in acco
 
 Simpler explanation: Go to [Google](https://google.com) and then you can find your authuser for your account like this:
 
-![authuser](assets/authuser.png)
+<img src="assets/authuser.jpg" height="350px" width="300px" />
 
 ---
 
