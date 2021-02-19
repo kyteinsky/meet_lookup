@@ -54,8 +54,8 @@ const scheduleMeet = ({ i: i, meetDetails: meetDetails }) => {
   if (millisTillMeet < 0) millisTillMeet += 86400000;
   schedules[i] = setTimeout(() => {
     openMeetTab(meetDetails);
-  // }, 0);
-  }, millisTillMeet)
+  }, 0);
+  // }, millisTillMeet)
 };
 
 // all listeners
