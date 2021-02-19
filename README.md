@@ -34,9 +34,9 @@
 
 #### Use it
 
-2. You set the meet link, start time, and duration of the meet
-3. Set authuser and keywords once
-4. ```python
+1. You set the meet link, start time, and duration of the meet
+2. Set authuser and keywords once
+3. ```python
 	if everything_correct:
 		press_okay_button()
 	else:
