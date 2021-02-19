@@ -40,8 +40,8 @@
 	if everything_correct:
 		press_okay_button()
 	else:
-		change_it()
-		prepress_okay_button()
+		rectify_it()
+		press_okay_button()
 
 #### That's it! Now sit back and relax.
 
