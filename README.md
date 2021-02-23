@@ -25,11 +25,6 @@
 2. Go to [chrome://extensions](chrome://extensions) and turn the Developer mode ON
 3. Click on "Load Unpacked" and select the cloned or extracted folder named meet_lookup
 
-#### Load the extension (crx way)
-1. Download the .crx file from releases page
-2. Go to [chrome://extensions](chrome://extensions) and turn the Developer mode ON
-3. Drag and drop this .crx file there
-
 <br />
 
 #### Use it
