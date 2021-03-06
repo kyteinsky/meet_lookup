@@ -25,7 +25,7 @@
 ## How to use it
 
 #### Load the extension
-1. Clone this repo or download zip adn extract it
+1. Clone this repo or download zip and extract it
 2. Go to [chrome://extensions](chrome://extensions) and turn the Developer mode ON
 3. Click on "Load Unpacked" and select the cloned or extracted folder named meet_lookup
 
@@ -77,7 +77,7 @@ Application flow is as follows:
 
 ### TODOS:
 1. failsafe for wrong authuser doesn't work quite well, so double check your authuser value before dozing off :slightly_smiling_face:
-2. compatibily with non-gsuite users
+2. compatibility with non-gsuite users
 3. function to turn on mic or video upon joining the meet (may turn out to be disastrous, but can be useful for some folks)
 4. A nice little logo
 
