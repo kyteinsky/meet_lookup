@@ -2,7 +2,7 @@
 # Meet Lookup Chrome Extension for GMeet
 
 <p align="right">
-  <img src="https://img.shields.io/badge/status-not%20working-red">
+  <img src="https://img.shields.io/badge/status-working-green">
 </p>
 
 ### This extension automates joining, muting microphone, blocking video, and monitoring for keywords if:
