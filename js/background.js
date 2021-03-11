@@ -54,7 +54,7 @@ const scheduleMeet = ({ i: i, meetDetails: meetDetails }) => {
   if (millisTillMeet < 0) millisTillMeet += 86400000;
   schedules[i] = setTimeout(() => {
     openMeetTab(meetDetails);
-  // }, 0);
+  // }, 0); // for debugging
   }, millisTillMeet)
 };
 
@@ -73,7 +73,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse({ msg: "done" });
 
     chrome.storage.sync.get("meets", (res) => {
-      meets = JSON.parse(res.meets);
+      meets = JSON.parse(res.meets) || {};
     });
     chrome.storage.sync.get("authuser", (res) => {
       authuser = res.authuser;
@@ -116,11 +116,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     );
   } else if (message.body.includes("alert")) {
     const meetId = message.body.split(" ")[2]
-    chrome.notifications.create(meetId, {
-      type: 'basic',
-      title: `Meet Alert: ${meetId}`,
-      message: `Looks like some word matched from your list in the meet conversations`
-    })
+    // notification isn't helping
+
+    // chrome.notifications.create(meetId, {
+    //   type: 'basic',
+    //   title: `Meet Alert: ${meetId}`,
+    //   message: `Looks like some word matched from your list in the meet conversations`,
+    //   iconUrl: ''
+    // },
+    // () => { // callback
+    //   // console.log('hello sir you might wish to look at it');
+    //   console.log(chrome.runtime.lastError);
+    // })
+
     chrome.tabs.update(sender.tab.id, {
       muted: false,
       selected: true,

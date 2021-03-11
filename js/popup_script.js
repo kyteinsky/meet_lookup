@@ -1,3 +1,5 @@
+let meets = {};
+
 //buttons
 const plosButton = document.getElementById("plos");
 const okayButton = document.getElementById("okay");
@@ -12,8 +14,10 @@ const wordsField = document.getElementById("words");
 
 const fetch_meets = () => {
   chrome.storage.sync.get("meets", (result) => {
-    meets = result.meets === "" ? {} : JSON.parse(result.meets);
+    if (result.meets)
+      meets = JSON.parse(result.meets)
     console.log("fetched all meets from storage");
+    for (let i in meets) appendHTML(i, ...meets[i]);
   });
 };
 const set_meets = () => {
@@ -56,13 +60,13 @@ const appendHTML = (index, ...fields) => {
   document.getElementById("all_meets").appendChild(ul);
 };
 
-let meets = {};
 
-chrome.storage.sync.get("meets", (result) => {
-  meets = JSON.parse(result.meets);
+// chrome.storage.sync.get("meets", (result) => {
+//   meets = JSON.parse(result.meets);
 
-  for (let i in meets) appendHTML(i, ...meets[i]);
-});
+//   for (let i in meets) appendHTML(i, ...meets[i]);
+// });
+fetch_meets()
 chrome.storage.sync.get("authuser", (result) => {
   if (result.authuser) authuserField.value = result.authuser;
 });
@@ -119,7 +123,7 @@ okayButton.addEventListener("click", () => {
     chrome.storage.sync.set({ authuser: authuserField.value }, () => {
       console.log("authuser storage value set");
     });
-    chrome.storage.sync.set({ words: words.toString() }, () => {
+    chrome.storage.sync.set({ words: words.map(word => word.toLowerCase()).toString() }, () => {
       console.log("words storage value set");
     });
 
