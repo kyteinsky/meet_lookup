@@ -14,7 +14,7 @@ function waitForElement(querySelector, timeout = 0) {
         clearInterval(timer);
         reject();
       }
-    }, 400);
+    }, Math.floor(Math.random() * (600 - 300)) + 300);
   });
 }
 
