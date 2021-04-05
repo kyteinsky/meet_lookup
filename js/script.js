@@ -49,7 +49,7 @@ function blockAllInputs() {
     }
     if (
       vidBtn?.className.split(" ").sort().toString() ===
-      "HNeRed,JRY2Pb,QmxbVb,U26fgb,kpROve,mUbCce,uJNmj"
+      "HNeRed,JRY2Pb,M9Bg4d,QmxbVb,U26fgb,kpROve,mUbCce,uJNmj"
         .split(" ")
         .sort()
         .toString()
