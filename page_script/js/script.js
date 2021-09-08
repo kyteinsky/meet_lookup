@@ -27,33 +27,22 @@ function blockAllInputs() {
   console.log('block vid');
   setTimeout(() => {
     const micBtn = document.querySelector(
-      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(4) > div > div > div > div"
+      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div > div > div > div:nth-child(4) > div > div > div > div"
     );
   
     const vidBtn = document.querySelector(
-      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(4) > div:nth-child(2) > div > div"
+      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div > div > div > div:nth-child(4) > div:nth-child(2) > div > div"
     );
 
     // const micBtn = document.querySelector("#ow3 > div > div > div:nth-child(9) > div:nth-child(3) > div:nth-child(9) > div:nth-child(2) > div > div > div > div")
 
     // const vidBtn = document.querySelector("#ow3 > div > div > div:nth-child(9) > div:nth-child(3) > div:nth-child(9) > div:nth-child(2) > div:nth-child(3) > div > div ")
   
-    if (
-      micBtn?.className.split(" ").sort().toString() ===
-      "HNeRed,JRY2Pb,QmxbVb,U26fgb,kpROve,mUbCce,uJNmj"
-        .split(" ")
-        .sort()
-        .toString()
-    ) {
+    console.log('micBtn.attributes[13].nodeValue', micBtn.attributes[13].nodeValue);
+    if (! micBtn.attributes[13].nodeValue) { // is-muted
       micBtn.click();
     }
-    if (
-      vidBtn?.className.split(" ").sort().toString() ===
-      "HNeRed,JRY2Pb,M9Bg4d,QmxbVb,U26fgb,kpROve,mUbCce,uJNmj"
-        .split(" ")
-        .sort()
-        .toString()
-    ) {
+    if (! vidBtn.attributes[13].nodeValue) { // is-muted
       vidBtn.click();
     }
   }, 500);
@@ -62,7 +51,7 @@ function blockAllInputs() {
 function joinMeet() {
   setTimeout(() => {
     const joinNow = document.querySelector(
-      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div > span > span"
+      "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div > span > span"
     );
     
     console.log(`00==${joinNow?.innerText}`);
@@ -207,7 +196,7 @@ function activateLookup() {
 // ^^^^^^^^^^^^^^^^^^^^^^^^ WATCHERS ^^^^^^^^^^^^^^^^^^^^^^^^ //
 // wait for vid btn to appear
 waitForElement(
-  "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(4) > div:nth-child(2)",
+  "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div > div > div > div:nth-child(4) > div:nth-child(2)",
   20000 // max 20 secs wait
 )
   .then(() => blockAllInputs())
@@ -216,7 +205,7 @@ waitForElement(
   })
 // wait for join now | ask btn to appear
 waitForElement(
-  "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div > span > span",
+  "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div > span > span",
   20000 // max 20 secs wait
 )
   .then(() => joinMeet())
@@ -225,7 +214,7 @@ waitForElement(
   })
 // wait for page to load | captions btn to appear
 waitForElement(
-  "#ow3 > div > div > div:nth-child(9) > div:nth-child(3) > div:nth-child(9) > div:nth-child(3) > div:nth-child(2)",
+  "#ow3 > div > div > div:nth-child(9) > div:nth-child(3) > div:nth-child(9) > div:nth-child(4) > div:nth-child(2)",
   20000 // max 20 secs wait
 )
   .then(() => activateLookup())

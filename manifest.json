@@ -1,16 +1,16 @@
 {
   "name": "GMeet Lookup",
-  "description": "Extension to alert you when some important work is said or typed in the Google Meet.",
-  "version": "1.0",
+  "description": "Extension to alert you when any important keyword is said or typed in the Google Meet.",
+  "version": "1.1",
   "manifest_version": 2,
   "icons": {},
   "background": {
-    "scripts": ["./js/background.js"],
+    "scripts": ["./background/background.js"],
     "persistent": true
   },
-  "options_page": "./html/options.html",
+  "options_page": "./options/options.html",
   "browser_action": {
-    "default_popup": "./html/popup.html"
+    "default_popup": "./popup/popup.html"
   },
   "permissions": [
     "tabs",

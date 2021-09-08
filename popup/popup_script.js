@@ -12,6 +12,11 @@ const intervalField = document.getElementById("interval");
 const authuserField = document.getElementById("authuser");
 const wordsField = document.getElementById("words");
 
+// error message element
+const errMsgSpan = document.getElementById("err_msg");
+
+
+// get all meets in storage
 const fetch_meets = () => {
   chrome.storage.sync.get("meets", (result) => {
     if (result.meets)
@@ -20,16 +25,19 @@ const fetch_meets = () => {
     for (let i in meets) appendHTML(i, ...meets[i]);
   });
 };
+
+// put all the meets in chrome storage
 const set_meets = () => {
   chrome.storage.sync.set({ meets: JSON.stringify(meets) }, () => {
     console.log("set meets key in persistent storage");
   });
 };
+
+// logger
 const logMeetsObject = () => {
   for (let i in meets) console.log(`${i} => ${meets[i]}`);
 };
 
-const errMsgSpan = document.getElementById("err_msg");
 
 const appendHTML = (index, ...fields) => {
   let ul = document.createElement("ul");
@@ -44,11 +52,11 @@ const appendHTML = (index, ...fields) => {
   delButton.addEventListener("click", deleteListener, false);
 
   let meetId = document.createElement("span");
-  meetId.innerHTML = fields[0].toLowerCase();
+  meetId.innerText = fields[0].toLowerCase();
   let start = document.createElement("span");
-  start.innerHTML = fields[1];
+  start.innerText = fields[1];
   let mins = document.createElement("span");
-  mins.innerHTML = `${fields[2]} mins`;
+  mins.innerText = `${fields[2]} mins`;
 
   li.appendChild(meetId);
   li.appendChild(start);
@@ -82,7 +90,7 @@ plosButton.addEventListener("click", () => {
     /([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(startField.value) &&
     /([0-9]{1,})/g.test(intervalField.value)
   ) {
-    errMsgSpan.innerHTML = "";
+    errMsgSpan.innerText = "";
     document.querySelector("#main").style.height = "550px";
     document.querySelector("#indicator").style.top = "110px";
     document.querySelector("#indicator").style.backgroundColor = "crimson";
@@ -108,7 +116,7 @@ plosButton.addEventListener("click", () => {
     startField.value = "";
   } else {
     // console.error('some error in input');
-    errMsgSpan.innerHTML = "check your input";
+    errMsgSpan.innerText = "check your input";
     document.getElementById("main").style.height = "570px"; // + 20px
   }
 });
@@ -130,10 +138,10 @@ okayButton.addEventListener("click", () => {
     chrome.runtime.sendMessage({ body: "set" }, (response) => {
       console.log(`msg sent, response: ${response.msg}`);
     });
-    errMsgSpan.innerHTML = "meets scheduled";
+    errMsgSpan.innerText = "meets scheduled";
     document.querySelector("#indicator").style.backgroundColor = "forestgreen";
   } else {
-    errMsgSpan.innerHTML = "check your input";
+    errMsgSpan.innerText = "check your input";
   }
   document.getElementById("main").style.height = "570px"; // + 20px
   document.querySelector("#indicator").style.top = "130px";
@@ -142,7 +150,7 @@ okayButton.addEventListener("click", () => {
 document.querySelector("#clear_all").addEventListener("click", () => {
   chrome.storage.sync.set({ meets: "{}" }, () => {
     console.log("chrome storage cleared");
-    document.querySelector("#all_meets").innerHTML = "";
+    document.querySelector("#all_meets").innerText = "";
   });
   meets = {};
 });
