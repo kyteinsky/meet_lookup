@@ -1,10 +1,6 @@
 
 # Meet Lookup Chrome Extension for GMeet
 
-<p align="right">
-  <img src="https://img.shields.io/badge/status-working-green">
-</p>
-
 ### This extension automates joining, muting microphone, blocking video, and monitoring for keywords if:
 <br />
 
@@ -78,7 +74,7 @@ Application flow is as follows:
 ### TODOS:
 1. failsafe for wrong authuser doesn't work quite well, so double check your authuser value before dozing off :slightly_smiling_face:
 2. compatibility with non-gsuite users
-3. function to turn on mic or video upon joining the meet (may turn out to be disastrous, but can be useful for some folks)
+3. option to keep the mic and/or video on from the start of the meet (may turn out to be disastrous, but can be useful for some folks)
 4. A nice little logo
 
 <br />
