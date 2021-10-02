@@ -1,12 +1,7 @@
 
 # Meet Lookup Chrome Extension for GMeet
 
-<p align="right">
-  <img src="https://img.shields.io/badge/status-working-green">
-</p>
-
 ### This extension automates joining, muting microphone, blocking video, and monitoring for keywords if:
-<br />
 
 > - someone calls out your **name**
 > - teacher mentions some surprise **test**
@@ -14,12 +9,11 @@
 
 #### Keywords are picked up from chat window and captions, and then checked against the list of words provided by you.
 
----
 **Note:** This implies that if someone **talks** or **types** about for eg. test, then you are instantly notified about it.
 
 ** Works for only them whose organizations have bought the GSuite
 
----
+<br>
 
 
 ## How to use it
@@ -29,29 +23,23 @@
 2. Go to [chrome://extensions](chrome://extensions) and turn the Developer mode ON
 3. Click on "Load Unpacked" and select the cloned or extracted folder named meet_lookup
 
-<br />
-
 #### Use it
 
 1. You set the meet link, start time, and duration of the meet
-2. Set authuser and keywords once
-3. ```python
-	if everything_correct:
-		press_okay_button()
-	else:
-		rectify_it()
-		press_okay_button()
+2. Add it to schedule
+3. Set authuser and keywords once
+4. When you're set, press "Okay" button.
 
 #### That's it! Now sit back and relax.
+**Note:** Sometimes you may have input a wrong authuser number, in this case you would be prompted to correct it when the meeting starts via an alert.
 
-### What's authuser?
-authuser is the index number of the google account from among the signed in accounts on that particular browser, i.e. chrome
+#### What's authuser?
+"authuser" is the index number of the google account from among the signed in accounts on that particular browser, i.e. chrome
 
 Simpler explanation: Go to [Google](https://google.com) and then you can find your authuser for your account like this:
 
 <img src="assets/authuser.jpg" height="350px" width="300px" />
 
----
 
 <br />
 
@@ -72,16 +60,20 @@ Application flow is as follows:
   - **Essentially the app stops working for that meet and you are in control for the rest of the duration of the meet**
 
 > If your internet connection is too slow like a page is not loaded in 20 seconds tops, I don't think it would be nice to join the meet and yeah the extension won't work as expected or told.
+<br>
 
----
+## Contributing guide
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for further information.
 
-### TODOS:
+<br>
+
+## Todos:
 1. failsafe for wrong authuser doesn't work quite well, so double check your authuser value before dozing off :slightly_smiling_face:
 2. compatibility with non-gsuite users
-3. function to turn on mic or video upon joining the meet (may turn out to be disastrous, but can be useful for some folks)
+3. option to keep the mic and/or video on from the start of the meet (may turn out to be disastrous, but can be useful for some folks)
 4. A nice little logo
 
 <br />
 <br />
 
-### Thanks!
+## Thanks!
