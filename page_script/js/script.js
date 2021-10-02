@@ -20,11 +20,11 @@ function waitForElement(querySelector, timeout = 0) {
 
 
 
-// ==================== HELPER FUNCTIONS ========================= //
+// =============== HELPER FUNCTIONS =============== //
 
 // mute mic and turn off camera
 function blockAllInputs() {
-  console.log('block vid');
+  console.log('block vid and mic');
   setTimeout(() => {
     const micBtn = document.querySelector(
       "#yDmH0d > c-wiz > div > div > div:nth-child(9) > div:nth-child(3) > div > div > div:nth-child(4) > div > div > div > div > div > div:nth-child(4) > div > div > div > div"
@@ -70,6 +70,9 @@ function joinMeet() {
     }
   
     joinNow?.parentElement?.parentElement?.firstChild?.click();
+    setTimeout(() => {
+      pageEvent()
+    }, 400);
   }, 2000);
 }
 
